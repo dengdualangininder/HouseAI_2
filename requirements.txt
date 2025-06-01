@@ -1,5 +1,7 @@
 flask==3.0.2
-line-bot-sdk==3.17.1  # 只保留此版本
+line-bot-sdk==3.17.1
 google-generativeai==0.8.5
 python-dotenv==1.0.1
-pydantic>=2.0  # 新增此項
+pydantic==2.7.1  # 明確指定最新 v2 版本
+werkzeug==3.0.2  # 避免 Flask 3.x 的隱性依賴衝突
+typing-extensions==4.11.0  # 解決 Python 3.12 類型提示問題

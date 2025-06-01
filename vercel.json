@@ -1,16 +1,19 @@
 {
     "version": 2,
-    "builds": [
-      {
-        "src": "bot.py",
-        "use": "@vercel/python"
+    "builds": [{
+      "src": "bot.py",
+      "use": "@vercel/python",
+      "config": { 
+        "maxLambdaSize": "15mb",
+        "runtime": "python3.12"
       }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "bot.py"
+    }],
+    "routes": [{
+      "src": "/(.*)",
+      "dest": "bot.py",
+      "headers": {
+        "Content-Type": "text/plain"
       }
-    ]
+    }]
   }
   

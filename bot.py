@@ -1,6 +1,11 @@
 from dotenv import load_dotenv
 load_dotenv()
 
+import sys
+import logging
+logging.basicConfig(stream=sys.stdout, level=logging.INFO)  # 強制輸出日誌到 Vercel 控制台
+
+
 import os
 import traceback
 from flask import Flask, request, abort
@@ -32,6 +37,7 @@ app = Flask(__name__)
 
 @app.route("/callback", methods=['POST'])
 def callback():
+    logging.info("Callback triggered")  # 新增此行
     signature = request.headers['X-Line-Signature']
     body = request.get_data(as_text=True)
     print(f"收到請求內容:\n{body}")
